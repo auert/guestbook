@@ -5,11 +5,15 @@
 <title></title>
 </head>
 <body>
-<div  class="span1" id="hid" style="width: 780px;">
-<H2>留下訊息</H2>
-</div>
 
-<form action="/guestbook/insert_db" id="insert" method="get">
+<?php
+
+if($data->num_rows()>0)
+   {
+foreach($data->result_array()as $row)
+   {
+?>
+<form action="/guestbook/updata" id="insert" method="get">
 <div class="span1" style="width: 780px;">
 
 <div id="hid1" class="span2"  style="width: 150px; float:left; text-align: right;">
@@ -17,7 +21,8 @@
 </div>
 
 <div class="span4" id="hid2"  style="width: 630px;">
-<input type="text" name="name" id="input01" style="width:300px;">
+<input type="hidden" name="id" id="input01" style="width:300px;" value="<?php echo $row["id"];?>">
+<input type="text" name="name" id="input01" style="width:300px;" value="<?php echo $row["name"];?>">
 </div>
 
 <P>
@@ -27,7 +32,9 @@
 </div>
 
 <div class="span4" id="hid4" style="width: 630px;">
-<textarea rows="10"  name="message" id="textarea" style="width:300px;" ></textarea>
+<textarea rows="10"  name="message" id="textarea" style="width:300px;" >
+<?php echo $row["message"];?>
+</textarea>
 </div>
 
 <P>
@@ -38,7 +45,14 @@
 <input type="reset" value="重新填寫" />
 </div>
 </form>
+<?php
+   }
+   }
 
+?>
+</table>
 
 </body>
 </html>
+
+

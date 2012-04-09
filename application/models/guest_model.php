@@ -1,32 +1,68 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Guest_model extends CI_Model {
-		public function _construct()
+	
+  public function __construct()
 	{
-parent::_construct;
-$this->load->database();
+    
+      parent::__construct();
+      $this->load->database();
+      
 	}
-		public function aaa()
-	{
-echo 'aaa';
-	}
-	    public function lists()
-		{
-		$this->db->insert_data($date)	
-		
-		foreach($query->result_array()as $row){
-			echo $row ->title;
-			echo $row ->name;
- 			}
-		}
-}
 
-	    public function lists()
-		{
-		$this->db->insert_data($date)	
+    //list
+public function guest_lists()
+	{
+    
+   $query = $this->db->query("select * from message");
+   return $query;
+   
+   	}
+	
+	
+		//insert_db
+    public function gbinsert($data=array())
+	{
+	
+    $this->db->insert('message',$data);
 		
-		foreach($query->result_array()as $row){
-			echo $row ->title;
-			echo $row ->name;
- 			}
-		}
-$this->db->insert_data($date)
+	}
+    
+		//delete
+    public function delete($id)
+	{
+    
+    $this->db->where('id',$id);
+	$this->db->delete('message');  
+    
+	}
+    
+    
+    //edit
+    public function edit($id)
+	{
+    
+    $edit = $this->db->query("select * from message where id='$id' ");
+    
+    return $edit;
+   
+   	}
+   
+   
+    //updata_db
+    public function gb_updata($data=array())
+	{
+   /* $update = array(
+    'id' =>$data['id'],
+    'name' =>$data['name'],
+    'message' =>$data['message'],
+    'add_time' =>""
+    );
+    */
+	//echo $data['id']."<br>";
+    //echo $data['name']."<br>";
+    //echo $data['message']."<br>";
+   $this->db->where('id',$data['id']);
+   $this->db->update('message',$data); 
+		
+	}
+}	

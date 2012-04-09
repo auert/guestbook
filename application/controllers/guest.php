@@ -1,6 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/*
+
 class Guestbook extends CI_Controller {
+		public function _con(){
+	
+  
+}
 	
 		public function add()
 	{
@@ -11,6 +15,6 @@ class Guestbook extends CI_Controller {
 		echo $id;
 	}
   
-}*/
-echo '111';
+}
+
 ?>
