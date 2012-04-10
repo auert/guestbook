@@ -42,15 +42,15 @@ class Guestbook extends CI_Controller {
 	
     
  	//updata
-    public function updata()
+    public function update()
 	{
     
-    $updata = array (
+    $update = array (
   "id" => $this->input->get_post('id') ? $this->input->get_post('id') : ""  ,
   "name" => $this->input->get_post('name') ? $this->input->get_post('name') :"",
   "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
    );
-     $this->guest_model->gb_updata($updata);
+     $this->guest_model->gb_update($update);
      $this->lists();
 	}
     

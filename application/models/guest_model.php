@@ -49,7 +49,7 @@ public function guest_lists()
    
    
     //updata_db
-    public function gb_updata($data=array())
+    public function gb_update($data=array())
 	{
    /* $update = array(
     'id' =>$data['id'],

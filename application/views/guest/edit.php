@@ -13,7 +13,7 @@ if($data->num_rows()>0)
 foreach($data->result_array()as $row)
    {
 ?>
-<form action="/guestbook/updata" id="insert" method="get">
+<form action="/guestbook/update" id="insert" method="get">
 <div class="span1" style="width: 780px;">
 
 <div id="hid1" class="span2"  style="width: 150px; float:left; text-align: right;">
