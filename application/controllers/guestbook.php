@@ -1,28 +1,29 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Guestbook extends CI_Controller {
-		public function __construct()
+
+
+	public function __construct()
 	{
         parent::__construct();
-        $this->load->model('guest_model');
-       
+        $this->load->model('guest_model');   
 	}
     
     
-    	public function index()
+    public function index()
 	{
-        $this->lists();
-        
+        $this->lists();       
 	}
     
 
 	//edit
-	public function edit($id)
-	{
-        
+    public function edit($id)
+	{       
 		$data['data'] = $this->guest_model->edit($id);       
         $this->load->view('/guest/edit',$data);
 	}
+
+    
     //view
 	public function view()
 	{       
@@ -30,67 +31,65 @@ class Guestbook extends CI_Controller {
         $this->load->view('/guest/lists',$data);
         $this->load->view('/guest/add',$data);
 	}
+
+
 	//add
 	public function add()
-	{
-  $data = array (
-  "name" => $this->input->get_post('name') ? $this->input->get_post('name') : ""  ,
-  "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
-  );
-  $this->load->view('/guest/add',$data);
+    {
+        $data = array (
+        "name" => $this->input->get_post('name') ? $this->input->get_post('name') : ""  ,
+        "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
+        );
+        $this->load->view('/guest/add',$data);
 	}
 	
     
  	//updata
     public function update()
-	{
+	{    
+        $update = array (
+        "id" => $this->input->get_post('id') ? $this->input->get_post('id') : ""  ,
+        "name" => $this->input->get_post('name') ? $this->input->get_post('name') :"",
+        "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
+        );
     
-    $update = array (
-  "id" => $this->input->get_post('id') ? $this->input->get_post('id') : ""  ,
-  "name" => $this->input->get_post('name') ? $this->input->get_post('name') :"",
-  "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
-   );
-     $this->guest_model->gb_update($update);
-     $this->lists();
+        $this->guest_model->gb_update($update);
+        $this->lists();
 	}
     
     
  	//insert
     public function insert_db()
 	{
-    
-    $indata = array (
-  "name" => $this->input->get_post('name') ? $this->input->get_post('name') : ""  ,
-  "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
-  );
-    $this->guest_model->gbinsert($indata);
-    $this->lists();
+        $indata = array (
+        "name" => $this->input->get_post('name') ? $this->input->get_post('name') : ""  ,
+        "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
+        );
+   
+        $this->guest_model->gbinsert($indata);
+        $this->lists();
 	}	   
     
     
 	//delete
     public function delete($id)
 	{
-      
-       //echo $id;
-       $this->guest_model->delete($id);
-       $this->lists();
-
+        //echo $id;
+        $this->guest_model->delete($id);
+        $this->lists();
 	}
 
-
-	
 
 	//list
     public function lists()
 	{   
         $data['data'] = $this->guest_model->guest_lists();
-        $this->load->view('/guest/lists',$data);
-        
-    //  $abc=$datarow->result_array();  	
-    //	$this->load->view('/guest/lists',$data);
+        $this->load->view('/guest/lists',$data);       
+        //  $abc=$datarow->result_array();  	
+        //	$this->load->view('/guest/lists',$data);
 	}
 	
+    
     //deleteall
     public function deleteall()
 	{   
@@ -100,7 +99,7 @@ class Guestbook extends CI_Controller {
         $this->guest_model->delete($check[$i]);
         }        
         $this->lists();
-    //  $abc=$datarow->result_array();  	
-    //	$this->load->view('/guest/lists',$data);
+        //  $abc=$datarow->result_array();  	
+        //	$this->load->view('/guest/lists',$data);
 	}
 }

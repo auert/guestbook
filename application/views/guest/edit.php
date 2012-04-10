@@ -9,9 +9,9 @@
 <?php
 
 if($data->num_rows()>0)
-   {
-foreach($data->result_array()as $row)
-   {
+    {
+        foreach($data->result_array()as $row)
+        {
 ?>
 <form action="/guestbook/update" id="insert" method="get">
 <div class="span1" style="width: 780px;">
@@ -28,7 +28,7 @@ foreach($data->result_array()as $row)
 <P>
 
 <div class="span2" id="hid3" style="width: 150px; float:left; text-align: right;">
-  <label for="textarea" >留言內容</label>
+<label for="textarea" >留言內容</label>
 </div>
 
 <div class="span4" id="hid4" style="width: 630px;">
@@ -46,9 +46,8 @@ foreach($data->result_array()as $row)
 </div>
 </form>
 <?php
-   }
-   }
-
+        }
+    }
 ?>
 </table>
 

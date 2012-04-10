@@ -5,6 +5,7 @@
 <title></title>
 </head>
 <body>
+
 <div  class="span1" id="hid" style="width: 780px;">
 <H2>留下訊息</H2>
 </div>
@@ -31,14 +32,14 @@
 </div>
 
 <P>
+
 </div>
 <div id="hid5" class="spanb" style=" width: 780px; height:50px">
-
 <input id="btn" type="submit"  value="新增留言" />
 <input type="reset" value="重新填寫" />
 </div>
-</form>
 
+</form>
 
 </body>
 </html>
