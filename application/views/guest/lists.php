@@ -5,7 +5,7 @@
 <title></title>
 <script language="javascript" type="text/javascript" src="/assets/jquery-1.7.1.min.js"></script>
 <script>
-	function sel()
+    function sel()
 {
     //alert('111');
     var checkItem = document.getElementsByName("c1[]");
