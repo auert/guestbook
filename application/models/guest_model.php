@@ -13,7 +13,7 @@ class Guest_model extends CI_Model {
 public function guest_lists()
 	{
     
-   $query = $this->db->query("select * from message");
+   $query = $this->db->query("select * from message order by add_time desc ");
    return $query;
    
    	}
@@ -24,7 +24,7 @@ public function guest_lists()
 	{
 	
     $this->db->insert('message',$data);
-		
+	
 	}
     
 		//delete

@@ -5,18 +5,31 @@ class Guestbook extends CI_Controller {
 	{
         parent::__construct();
         $this->load->model('guest_model');
+       
 	}
     
+    
+    	public function index()
+	{
+        $this->lists();
+        
+	}
+    
+
 	//edit
 	public function edit($id)
 	{
         
-		$data['data'] = $this->guest_model->edit($id);
-        
-        
+		$data['data'] = $this->guest_model->edit($id);       
         $this->load->view('/guest/edit',$data);
 	}
-    
+    //view
+	public function view()
+	{       
+        $data['data'] = $this->guest_model->guest_lists();
+        $this->load->view('/guest/lists',$data);
+        $this->load->view('/guest/add',$data);
+	}
 	//add
 	public function add()
 	{
@@ -38,6 +51,7 @@ class Guestbook extends CI_Controller {
   "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
    );
      $this->guest_model->gb_updata($updata);
+     $this->lists();
 	}
     
     
@@ -50,6 +64,7 @@ class Guestbook extends CI_Controller {
   "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"" 
   );
     $this->guest_model->gbinsert($indata);
+    $this->lists();
 	}	   
     
     
@@ -59,7 +74,8 @@ class Guestbook extends CI_Controller {
       
        //echo $id;
        $this->guest_model->delete($id);
-       
+       $this->lists();
+
 	}
 
 
@@ -71,11 +87,20 @@ class Guestbook extends CI_Controller {
         $data['data'] = $this->guest_model->guest_lists();
         $this->load->view('/guest/lists',$data);
         
-      //  $abc=$datarow->result_array();
-        
-    	
+    //  $abc=$datarow->result_array();  	
     //	$this->load->view('/guest/lists',$data);
 	}
 	
-
+    //deleteall
+    public function deleteall()
+	{   
+        $check = $this->input->get_post('c1') ;       
+        for($i=0;$i<count($check);$i++)
+        {
+        $this->guest_model->delete($check[$i]);
+        }        
+        $this->lists();
+    //  $abc=$datarow->result_array();  	
+    //	$this->load->view('/guest/lists',$data);
+	}
 }

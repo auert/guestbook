@@ -41,7 +41,7 @@ foreach($data->result_array()as $row)
 </div>
 <div id="hid5" class="spanb" style=" width: 780px; height:50px">
 
-<input id="btn" type="submit"  value="新增留言" />
+<input id="btn" type="submit"  value="修改留言" />
 <input type="reset" value="重新填寫" />
 </div>
 </form>

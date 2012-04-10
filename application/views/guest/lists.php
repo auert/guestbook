@@ -3,9 +3,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
+<script language="javascript" type="text/javascript" src="/assets/jquery-1.7.1.min.js"></script>
+<script>
+	function sel()
+{
+	//alert('111');
+    var checkItem = document.getElementsByName("c1[]");
+	for(var i=0;i<checkItem.length;i++){
+	checkItem[i].checked=!checkItem[i].checked;   
+	}
+    
+}
+
+
+</script>
 </head>
 <body>
-<table border=1 id=tab>
+<div class="span1" style="width: 780px;">
+<form action="/guestbook/view">
+<input type="submit" value="新增留言" style="float: left">
+</form>
+<button href="#"  onclick="sel()" style="float: left">全選留言</button>
+<button href="#" form="del" >刪除留言</button>
+
+
+
+
+</div>
+<table border="1" id="tab">
 <tr>
                 <th width="50">&nbsp;</th>
                 <th width="50">#</th>
@@ -14,7 +39,7 @@
                 <th width="150">時間</th>
                 <th width="80">動作</th>
     </tr>
-
+<form id="del" method="post" action="/guestbook/deleteall">
 <?php
 
 if($data->num_rows()>0)
@@ -22,10 +47,10 @@ if($data->num_rows()>0)
 foreach($data->result_array()as $row)
    {
 ?>
-<form id="del" method="post">
+
 <tr>
 <td width="50">
-<input type="checkbox" id="c1" name="c1">
+<input type="checkbox" id="c1" name="c1[]" value="<?php echo $row["id"];?>">
 </td>
 <td width="50"><?php echo $row["id"];?></td>
 <td width="150"><?php echo $row["name"];?></td>
@@ -33,15 +58,16 @@ foreach($data->result_array()as $row)
 <td width="280"><?php echo $row["message"];?></td>
 <td width="150"><?php echo $row["add_time"];?></td>
 <td width="120">
-<input type="button"  value="修改" onClick="delete(this,<?php echo $row["id"];?>)"/>
-<input type="button"  value="刪除" onClick="delete(this,<?php echo $row["id"];?>)"/></td>
+<a href="/guestbook/edit/<?php echo $row["id"];?>"><button>修改</button></a>
+<a href="/guestbook/delete/<?php echo $row["id"];?>"><button>刪除</button></a>
+</td>
 </tr>
-</form>
+
 <?php
    }
    }
-
 ?>
+</form>
 </table>
 
 </body>
