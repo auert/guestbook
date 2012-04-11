@@ -89,7 +89,7 @@ class Guestbook extends CI_Controller {
         //  $abc=$datarow->result_array();
         //  $this->load->view('/guest/lists',$data);
     }
-	
+
     
     //deleteall
     public function deleteall()
@@ -102,6 +102,6 @@ class Guestbook extends CI_Controller {
         
         $this->lists();
         //  $abc=$datarow->result_array();
-        //	$this->load->view('/guest/lists',$data);
+        //  $this->load->view('/guest/lists',$data);
     }
 }
