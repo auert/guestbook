@@ -90,7 +90,7 @@ class Guestbook extends CI_Controller {
         //  $this->load->view('/guest/lists',$data);
     }
 
-    
+
     //deleteall
     public function deleteall()
     {
