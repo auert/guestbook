@@ -71,6 +71,17 @@ if($data->num_rows()>0)
 ?>
 </form>
 </table>
+<table>
+<form action="/guestbook/user" method="post">
+
+<tr>
+<td>姓名</td>
+<td><input type="text" name="name"></td>
+<td>公司</td>
+<td><input type="text" name="company"></td>
+<td><input type="submit" value="送出"></td>
+</form>
+</table>
 
 </body>
 </html>

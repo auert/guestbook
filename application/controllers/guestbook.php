@@ -104,4 +104,16 @@ class Guestbook extends CI_Controller {
         //  $abc=$datarow->result_array();
         //  $this->load->view('/guest/lists',$data);
     }
+    
+    public function user()
+    {
+        $user = array(
+        "user_name"=>$this->input->get_post('name'),
+        "user_company"=>$this->input->get_post('company')
+        );
+        //var_dump($user);
+        $this->load->model('user_model');
+        $this->user_model->user_insert($user);
+        
+    }
 }
