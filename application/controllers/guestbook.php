@@ -12,12 +12,12 @@ class Guestbook extends CI_Controller {
     
     public function index()
     {
-        $this->lists();       
+        $this->lists();
     }
     
 
     //edit
-    public function edit($id)
+    public function edit($id='')
     {       
         $data['data'] = $this->guest_model->edit($id);       
         $this->load->view('/guest/edit',$data);
@@ -73,7 +73,7 @@ class Guestbook extends CI_Controller {
 
 
     //delete
-    public function delete($id)
+    public function delete($id='')
     {
         //echo $id;
         $this->guest_model->delete($id);
@@ -98,7 +98,7 @@ class Guestbook extends CI_Controller {
         for($i=0;$i<count($check);$i++)
         {
             $this->guest_model->delete($check[$i]);
-        }        
+        }
         
         $this->lists();
         //  $abc=$datarow->result_array();

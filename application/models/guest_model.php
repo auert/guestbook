@@ -4,14 +4,14 @@ class Guest_model extends CI_Model {
   public function __construct()
     {    
         parent::__construct();
-        $this->load->database();      
+        $this->load->database();
     }
 
     //list
 public function guest_lists()
     {    
         $query = $this->db->query("select * from message order by add_time desc");
-        return $query;  
+        return $query;
     }
 
     
@@ -22,18 +22,18 @@ public function guest_lists()
     }
     
     //delete
-    public function delete($id)
+    public function delete($id='')
     {   
         $this->db->where('id',$id);
-        $this->db->delete('message');      
+        $this->db->delete('message');
     }
     
     
     //edit
-    public function edit($id)
+    public function edit($id='')
     {    
         $edit = $this->db->query("select * from message where id='$id'");
-        return $edit;   
+        return $edit;
     }
    
    
