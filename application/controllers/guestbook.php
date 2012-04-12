@@ -19,7 +19,7 @@ class Guestbook extends CI_Controller {
     //edit
     public function edit($id='')
     {       
-        $data['data'] = $this->guest_model->edit($id);       
+        $data['data'] = $this->guest_model->edit($id);
         $this->load->view('/guest/edit',$data);
     }
 
