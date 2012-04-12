@@ -23,10 +23,13 @@
 <table border="1">
 
 <tr>
-<td>姓名</td>
+<td>news_id</td>
+<td>user_id</td>
 <td>標題</td>
 <td>訊息</td>
+<td>姓名</td>
 <td>公司</td>
+
 </tr>
 <?php
 if($data->num_rows()>0)
@@ -35,9 +38,11 @@ if($data->num_rows()>0)
         {
 ?>
 <tr>
-<td><?php echo $row["user_name"];?></td>
+<td><?php echo $row["news_id"];?></td>
+<td><?php echo $row["user_id"];?></td>
 <td><?php echo $row["news_title"];?></td>
 <td><?php echo $row["news_message"];?></td>
+<td><?php echo $row["user_name"];?></td>
 <td><?php echo $row["user_company"];?></td>
 </tr>
 <?php

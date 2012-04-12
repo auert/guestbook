@@ -33,7 +33,13 @@
 <td>
 <input type="submit" value="送出">
 </td>
+</tr>
 </form>
+<tr>
+<td align="center" colspan="5">
+<a href="/news"><button>首頁</button></a>
+</td>
+</tr>
 </table>
 </div>
 

@@ -52,6 +52,11 @@ if($data->num_rows()>0)
         }
     }
 ?>
+<tr>
+<td colspan="5" align="center">
+<a href="/news" ><button>首頁</button></a>
+</td>
+</tr>
 </table>
 </div>
 
