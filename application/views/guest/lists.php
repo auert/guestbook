@@ -17,6 +17,12 @@
 }
 
 
+    function aaa()
+{
+    //alert('111');
+    window.location.href = "tw.yahoo.com";
+}
+
 </script>
 </head>
 <body>
@@ -40,7 +46,7 @@
         <th width="150">時間</th>
         <th width="80">動作</th>
     </tr>
-<form id="del" method="post" action="/guestbook/deleteall">
+<form id="del" method="post" action="/guestbook/deleteall/">
 
 <?php
 if($data->num_rows()>0)
@@ -57,10 +63,16 @@ if($data->num_rows()>0)
 <td width="50"><?php echo $row["id"];?></td>
 <td width="150"><?php echo $row["name"];?></td>
 
-<td width="280"><?php echo $row["message"];?></td>
+<td width="280">
+<?php 
+    if($row["message"] != 0){
+    echo '已有'. $row["message"] .'個人點擊此連結';
+    };
+?>
+</td>
 <td width="150"><?php echo $row["add_time"];?></td>
 <td width="120">
-<a href="/guestbook/edit/<?php echo $row["id"];?>"><button>修改</button></a>
+<a href="/guestbook/edit/<?php echo $row["id"];?>"><button onclick="aaa()">修改</button></a>
 <a href="/guestbook/delete/<?php echo $row["id"];?>"><button>刪除</button></a>
 </td>
 </tr>
@@ -82,6 +94,6 @@ if($data->num_rows()>0)
 <td><input type="submit" value="送出"></td>
 </form>
 </table>
-
+<input type="button" value="link" name="c1" onclick="aaa()"> 
 </body>
 </html>

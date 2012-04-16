@@ -23,6 +23,7 @@ class Guest extends CI_Controller {
     
     public function edit($id)
     {
+        $this->link_count($id);
         $edit['data'] = $this->guest_model->edit($id);
         $this->load->view('/guest/edit',$edit);
     }
@@ -40,6 +41,11 @@ class Guest extends CI_Controller {
         
     }
     
+    
+    public function link_count($id='')
+    {
+        $this->guest_model->link_count($id);
+    }
 }
 
 ?>
