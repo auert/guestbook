@@ -20,7 +20,7 @@
     function aaa()
 {
     //alert('111');
-    window.location.href = "tw.yahoo.com";
+    window.location.href = "http://www.tw.yahoo.com";
 }
 
 </script>
@@ -94,6 +94,7 @@ if($data->num_rows()>0)
 <td><input type="submit" value="送出"></td>
 </form>
 </table>
-<input type="button" value="link" name="c1" onclick="aaa()"> 
+<a href="http://www.tw.yahoo.com" target="_blank"  onclick="aaa()"><button>link</button></a>
+
 </body>
 </html>

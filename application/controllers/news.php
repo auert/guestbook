@@ -6,6 +6,7 @@ class News extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('url');
         $this->load->model('user_model');
         $this->load->model('news_model');
         }
@@ -13,8 +14,7 @@ class News extends CI_Controller {
     //
     public function index()
     {
-
-        $this->lists();
+        redirect('/news/lists/', 'location');
     }
     
     //
@@ -33,7 +33,7 @@ class News extends CI_Controller {
         );
         //var_dump($user);
         $this->user_model->user_insert($user);
-        $this->lists();
+        redirect('/news/lists/', 'location');
     }
         
     //
@@ -47,7 +47,7 @@ class News extends CI_Controller {
         );
         //var_dump($news);
         $this->news_model->news_insert($news);
-        $this->lists();
+        redirect('/news/lists/', 'location');
         
     }
     
@@ -92,7 +92,7 @@ class News extends CI_Controller {
     public function user_delete($user_id='')
     {   
         $this->user_model->user_delete($user_id);
-        $this->lists();
+        redirect('/news/lists/', 'location');
     }
     
     
@@ -107,7 +107,7 @@ class News extends CI_Controller {
     public function news_delete($news_id='')
     {   
         $this->news_model->news_delete($news_id);
-        $this->lists();
+        redirect('/news/lists/', 'location');
     }
     
     
@@ -121,7 +121,7 @@ class News extends CI_Controller {
         );
     
         $this->user_model->user_update($update);
-        $this->lists();//讀取lists function
+        redirect('/user/all_lists/');//讀取lists function
     }
     
     
@@ -135,6 +135,6 @@ class News extends CI_Controller {
         );
     
         $this->news_model->news_update($update);
-        $this->lists();//讀取lists function
+        redirect('/news/lists/', 'location');//讀取lists function
     }
 }
