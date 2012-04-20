@@ -61,13 +61,19 @@ public function guest_lists()
     //link_count
     public function link_count($id='')
     {    
-        $edit =$this->db->query("select * from message where id='$id'");
+        $this->db->where('id',$id);
+        $edit =$this->db->get('message');
         foreach($edit->result_array() as $data)
             {
             $count = $data['message'];
             }
         $count = isset($count) ? $count + 1 : "0";
-        $this->db->query("update message set message ='$count' where id='$id'");
+        $data = array(
+            'message' => $count
+        );
+        $this->db->where('id',$id);
+        $this->db->update('message',$data);
+        //$this->db->query("update message set message ='$count' where id='$id'");
         //echo $count;
         //var_dump($edit);
     }

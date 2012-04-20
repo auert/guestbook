@@ -4,10 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <script language="javascript" type="text/javascript" src="/assets/jquery-1.7.1.min.js"></script>
+
 <script>
     function sel()
 {
     //alert('111');
+    //<script type="text/javascript" src="http://www.google.com/jsapi">
+    //<script type="text/javascript" src="/assets/snow-v3.jquery.js">
     var checkItem = document.getElementsByName("c1[]");
         for(var i=0;i<checkItem.length;i++)
         {
@@ -19,8 +22,18 @@
 
     function aaa()
 {
-    //alert('111');
-    window.location.href = "http://www.tw.yahoo.com";
+    //window.location.href = "http://www.tw.yahoo.com";
+    var name1=$('.price').text();
+    var message1=$('.brand').text();
+    //var data=[name,message];
+    alert('123');
+    
+    $.ajax({
+            url: "/guest/insert_db",
+            data: {name:name1,message:message1},
+            type:"POST",
+        });
+        
 }
 
 </script>
@@ -94,7 +107,13 @@ if($data->num_rows()>0)
 <td><input type="submit" value="送出"></td>
 </form>
 </table>
-<a href="http://www.tw.yahoo.com" target="_blank"  onclick="aaa()"><button>link</button></a>
-
+<a  onclick="aaa()"><button>link</button></a>
+<?php
+//href="http://www.tw.yahoo.com" target="_blank" 
+?>
+<p>
+售價：<span class="price">1~lalala</span>
+品牌：<span class="brand">2~wow~~~</span>
+</p>
 </body>
 </html>

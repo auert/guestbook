@@ -46,6 +46,19 @@ class Guest extends CI_Controller {
     {
         $this->guest_model->link_count($id);
     }
+    
+    
+    //insert
+    public function insert_db()
+    {
+        $indata = array (
+        "name" => $this->input->get_post('name') ? $this->input->get_post('name') : "Ya"  ,
+        "message" => $this->input->get_post('message') ? $this->input->get_post('message') :"30"
+        );
+   
+        $this->guest_model->gbinsert($indata);
+        $this->lists();
+    }
 }
 
 ?>
